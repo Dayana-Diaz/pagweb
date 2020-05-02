@@ -1,0 +1,16 @@
+body { background-image: url(fondo.jpg)}
+p{
+	border: 3px solid purple;
+	margin:5px;
+	padding:5px;
+	width:450px;
+	line-height:150%;
+	background-color: #D79ADC;
+	color: white;
+}
+
+imag {
+width="600"
+height="600"
+
+}
