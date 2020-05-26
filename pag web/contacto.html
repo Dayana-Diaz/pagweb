@@ -7,15 +7,15 @@
 		<link rel="stylesheet"  href="estilos.css">
 		
 	</head>
-	<body bgcolor="F1B1C8">
+	<body >
 		
 		<header>
-			<div>
-				<img src="C:\Users\DAYANA\Pictures\logo.jpg" width="80 "alt="logotipo">
-			</div>
 			
+				<img src="C:\Users\DAYANA\Pictures\logo.jpg" width="80 "alt="logotipo">
+			
+		</header>	
 
-
+		
 		<font size "" align="left" color="F71FB9">
 		<H1 id="TituloPrincipal">CONTACTANOS...</H1>
 		</font>
@@ -24,34 +24,86 @@
 		<strong><center>Estas son las fuentes a las que puede dirijirse</center></strong>
 		</font>
 
+
 		<br>
 		<br>
 		<br>
-		<font size= "4.5" face="Trebuchet MS"" color="1429E7">
-		<strong>Correo Electronico</strong>
-		</font>
 		<br>
-		<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
-		<strong>Dayana.wuw.Qgmail.com</strong>
-		</font>
+		<br>
+
+		<form id="form1" name="form1" action="actBase.php" method="post">
+			<label for="nombre">Nombre</label>
+			<input type="text" id="nombre" placeholder="Escribe tu nombre">
 		
+			<label for="email">Email</label>
+			<input type="email" id="email" placeholder="Escribe tu direccion de correo">
+
+			<label for="mensaje">Comentario</label>
+			<textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
+			
+			<div class="alien">
+			<div class="manzana">
+			<input type="radio" name="sexo" id="hombre">
+			<label for="hombre">Hombre</lab>
+			</div>
+			<div class="ciruela">
+			<input type="radio" name="sexo" id="mujer">
+			<label for="mujer">Mujer</lab>
+			</div>
+			</div>
+			<br>
+			<br>
+			<input type="submit" value="Enviar" name="boton" id="botonEnviar"><br><
+			<input type="reset" value="Nuevo" name="botonNuevo" id="botonNuevo" >
+
+
+			<?php
+			include"conectar.php";
+			$resConectar=conecta();
+			$sqlAreas="SELECT*FROM AREA";
+			$tablaArea=mysql_query($tablaAreas);
+			$numfilasArea=mysql_num_rows($tablaArea);
+			for ($i=0; $i<$numfilasAreas; $i++)
+			{
+				filaArea=mysql_fetch_array($tablaArea);
+				echo'<OPTION>'.$filaArea['nomArea'].'</OPTION>';
+			}
+			?>
+		</form>
+
+
 		<br>
-		<br>
-		<font size= "4.5" face="Trebuchet MS"" color="1429E7">
-		<strong>Numero Telefonico</strong>
-		</font>
-		<br>
-		<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
-		<strong>222-331-5828</strong>
-		</font>
 	
-		<br>
-		<br>
-		<font size= "4.5" face="Trebuchet MS"" color="1429E7">
-		<strong>Nuestra Localizacion</strong>
-		</font>
-		<br>
-		<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
-		<strong>Tlaxcala,Panzacola-San BuenaAventura</strong>
-		</font>
-	<body/>
+		<div class="durazno">
+			<br>
+			<font size= "4.5" face="Trebuchet MS"" color="1429E7">
+			<strong>Correo Electronico</strong>
+			</font>
+			<br>
+			<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
+			<strong>Dayana.wuw.Qgmail.com</strong>
+			</font>
+		
+			<br>
+			<br>
+			<font size= "4.5" face="Trebuchet MS"" color="1429E7">
+			<strong>Numero Telefonico</strong>
+			</font>
+			<br>
+			<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
+			<strong>222-331-5828</strong>
+			</font>
+	
+			<br>
+			<br>
+			<font size= "4.5" face="Trebuchet MS"" color="1429E7">
+			<strong>Nuestra Localizacion</strong>
+			</font>
+			<br>
+			<font size= "4.5" face="Comic Sans MS,arial" color="0D1877">
+			<strong>Tlaxcala,Panzacola-San BuenaAventura</strong>
+			</font>
+		</div>
+
+
+	<body/> 
