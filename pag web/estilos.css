@@ -237,16 +237,6 @@ input[type="submit"]:hover{
 	background:#FF95CA;
 	cursor:pointer;
 }
-input[type="reset"]{
-	margin-bottom:0;
-	background:#D9006C;
-	color#fff;
-	border:none;
-}
-input[type="reset"]:hover{
-	background:#FF95CA;
-	cursor:pointer;
-}
 .durazno{
 
 	width: 250px;

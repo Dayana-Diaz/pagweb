@@ -1,5 +1,18 @@
+<?php
+	$servidor="localhost";
+	$usuario="root";
+	$clave="";
+	$basedeDatos= "comentarios";
+
+	$enlace = mysqli_connect($servidor, $usuario, $clave, $basedeDatos);
+
+	if (!$enlace)
+	{
+		echo "Error en la conexion con el servidor";
+	}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 	<head>
 		<meta charset="UTF-8">
@@ -53,10 +66,12 @@
 			</div>
 			<br>
 			<br>
-			<input type="submit" value="Enviar" name="boton" id="botonEnviar"><br><
+			<input type="submit" value="Enviar" name="boton" id="botonEnviar"><br>
+			<!---
 			<input type="reset" value="Nuevo" name="botonNuevo" id="botonNuevo" >
 
 
+		
 			<?php
 			include"conectar.php";
 			$resConectar=conecta();
@@ -69,8 +84,54 @@
 				echo'<OPTION>'.$filaArea['nomArea'].'</OPTION>';
 			}
 			?>
+			--->
 		</form>
 
+		<div class="tabladeregistro">
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Correo</th>
+					<th>Comentario</th>
+					<th>Sexo</th>
+				</tr>
+					<?php
+						$consulta= "SELECT * FROM datos";
+						$ejecutarConsulta= mysqli_query($enlace, $consulta)
+						$verFilas= mysqli_num_rows($ejecutarConsulta)
+						$fila= mysquli_fetch_array($ejecutarConsulta);
+
+						if(!$ejecutarConsulta)
+						{
+							echo "Error en la consulta;"
+						}
+						else
+						{
+							if($verFilas<1)
+							{
+								echo "<tr><td>Sin registros</td></tr>"
+							}
+							else 
+							{
+								for($i=0-; $i<=$fila; $i++)
+								{
+									echo'
+										<tr>
+											<td>'.$fila[0].'</td>
+											<td>'.$fila[1].'</td>
+											<td>'.$fila[2].'</td>
+											<td>'.$fila[3].'</td>
+											<td>'.$fila[4].'</td>
+										</tr>
+										';
+										$fila=mysqli_fetch_array($ejecutarConsulta);
+								}
+							}
+						}
+					?>
+			</table>
+		</div>
 
 		<br>
 	
@@ -104,6 +165,24 @@
 			<strong>Tlaxcala,Panzacola-San BuenaAventura</strong>
 			</font>
 		</div>
-
-
 	<body/> 
+</html>
+<?php
+	if(isset($_POST['boton']))
+	{
+		$nombre=$_POST["nombre"];
+		$correo=$_POST["email"];
+		$sexo=$_POST["sexo"];
+		$comentario=$_POST["mensaje"];
+		$id=
+
+		$insertarDatos = "INSERT INTO comentarios VALUES('$nombre',
+														   'correo',
+														   'comentario',
+														   'sexo',
+														   '$id')";
+
+	   $ejecutarInsertar = mysqli_query($enlace, $insertarDatos);
+	   
+	}
+?>
